@@ -137,7 +137,7 @@ syscall(void)
 {
   int num;
   struct proc *curproc = myproc();
-
+/*
   char *llamada[23];
   llamada[0] = "fork";
   llamada[1] = "exit";
@@ -162,11 +162,11 @@ syscall(void)
   llamada[20] = "close";
   llamada[21] = "shutdown";
   llamada[22] = "reboot";
-
+*/
 
   num = curproc->tf->eax;
   if(num > 0 && num < NELEM(syscalls) && syscalls[num]) {
-    cprintf("%s -> %d\n",llamada[num-1] ,num);
+    //cprintf("%s -> %d\n",llamada[num-1] ,num);
     curproc->tf->eax = syscalls[num]();
 
   } else {
